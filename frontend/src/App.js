@@ -20,6 +20,7 @@ function App() {
 
     function handleClick(i){
       if(squares[i] || calculateWinner(squares)) return;
+      if(squares[i]) return;
       
       const nextSquares= squares.slice();
       
@@ -32,7 +33,7 @@ function App() {
       
       setXIsNext(!xIsNext);
       setSquares(nextSquares);
-      
+
       
     }
     function handleRestart() {
