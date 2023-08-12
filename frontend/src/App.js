@@ -13,14 +13,28 @@ function App() {
 }
 
   function Board() {
+    // adding the state for X and O interchange
+    const [xIsNext, setXIsNext] = useState(true);
+
+    // adding states for each square component in the board
     const [squares, setSquares]=  useState(Array(9).fill(null))
 
     function handleClick(i){
-
+      if(squares[i]) return;
+      
       const nextSquares= squares.slice();
-      nextSquares[i]='X';
-
+      
+      if(xIsNext ){
+        nextSquares[i]='X';
+      }
+      else{
+        nextSquares[i]='O';
+      }
+      
+      setXIsNext(!xIsNext);
       setSquares(nextSquares);
+    
+      
     }
     function handleFirstSquareClick(){ // you can do ths for all the cells beacause 
                                        // when u pass (i) function runs as soon as it is passed
